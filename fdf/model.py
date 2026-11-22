@@ -1,3 +1,4 @@
+from collections.abc import Iterator
 from dataclasses import dataclass
 
 
@@ -16,7 +17,7 @@ class Map:
     def __len__(self) -> int:
         return len(self.points)
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[list[Point]]:
         return iter(self.points)
 
     def neighbors(self, point: Point) -> list[Point]:
