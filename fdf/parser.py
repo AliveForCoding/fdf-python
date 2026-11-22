@@ -1,5 +1,6 @@
 from fdf.model import Map, Point
 
+
 class FdfError(Exception):
     pass
 
