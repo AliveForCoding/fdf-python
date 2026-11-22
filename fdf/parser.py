@@ -1,4 +1,4 @@
-from fdf.model import Point
+from fdf.model import Map, Point
 
 class FdfError(Exception):
     pass
@@ -66,3 +66,34 @@ def parse_row(line_text: str, y: int, line_number: int) -> list[Point]:
         points.append(point)
 
     return points
+
+def parse_map(text: str) -> Map:
+    lines = text.splitlines()
+
+    while lines and not lines[-1].strip():
+        lines.pop()
+
+    if not lines:
+        raise MapFormatError("Файл карты пуст")
+
+    expected_width = len(lines[0].split())
+
+    points: list[list[Point]] = []
+
+    for line_number, line_text in enumerate(lines, start=1):
+        tokens = line_text.split()
+
+        if len(tokens) != expected_width:
+            raise MapFormatError(
+                f"строка {line_number}: неправильная ширина карты"
+            )
+        row = parse_row(line_text, y=len(points), line_number=line_number)
+        points.append(row)
+
+    return Map(points)
+
+def load_map(file_path: str) -> Map:
+    with open(file_path, encoding="utf-8") as file:
+        text = file.read()
+
+    return parse_map(text)
