@@ -1,0 +1,27 @@
+# Python кэш
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальная среда
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
+.mypy_cache/
+
+# Linter
+.ruff_cache/
+
+# сис файлы
+.DS_Store
+Thumbs.db
