@@ -38,7 +38,7 @@
 
 Запуск тестов:
 
-    pytest -q
+    python -m pytest -q
 
 Проверка типов:
 
