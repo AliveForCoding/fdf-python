@@ -58,4 +58,8 @@
     ├── docs/
     ├── main.py
     ├── README.md
-    └── .gitignore
+    └── .gitignore  
+
+## Скриншот программы
+
+![FdF Wireframe Map](docs/colors.png)
